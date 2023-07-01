@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+home
+{% endblock 'title' %}
+
+{% block 'style' %}
+<link rel="stylesheet" href="{% static 'mycss/style.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+
+
+<div id="main">
+
+    
+    <!-- <div id="form-text">
+        <h1>Welcome to Total kissan org</h1>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam?</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cumque molestias asperiores, odio incidunt architecto nulla. Placeat eveniet pariatur aut voluptas dolores reiciendis dolor quibusdam, veniam vitae, veritatis nemo voluptates.</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, rem quos! Laboriosam earum aliquid provident?</h4>
+    </div> -->
+
+    <div id="home-form">
+
+        {% for message in messages %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="close"></button>
+    </div>
+
+    {% endfor %}
+
+        <h1 class="text-center">Sign up</h1>
+
+        <form action="/signup/" method="post">
+            {% csrf_token %}
+            <br>
+
+            <label for="email">Email</label>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            {% comment %} <label for="state">State</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="state" name="state" required>
+            </div>
+            
+            <label for="district">District</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="district" name="district" required>
+            </div>
+
+            <label for="block">Block</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="block" name="block" required>
+            </div>
+
+            <label for="village">Village</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="village" name="village" required>
+            </div> {% endcomment %}
+        
+            <label for="pass1">Password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass1" name="pass1" required>
+            </div>
+        
+            <label for="pass2">confirm password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass2" name="pass2" required>
+            </div>
+        
+            <br>
+
+            <center>
+            <button class="btn btn-success" type="submit" style="color: white;">Submit</button>
+            </center>
+            <br>
+            <center>
+                Already user? <a href="/login/">Login</a>
+            </center>
+           
+            <br>
+        
+        </form>
+    </div>
+
+    
+
+</div>
+
+
+{% endblock %}

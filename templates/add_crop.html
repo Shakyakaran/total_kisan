@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+home
+{% endblock 'title' %}
+
+{% block 'style' %}
+<link rel="stylesheet" href="{% static 'mycss/add_crop-style.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+
+<div id="main">
+
+    <div id="form-container">
+
+        <h1 style="width:max-content;margin: auto;border-bottom:1px solid grey;">Add new Crop</h1>
+
+        <form action="/add_crop/" method="post">
+            {% csrf_token %}
+            <br>
+
+            <center><h2>Location</h2></center>
+            {% comment %} <label for="state">State</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="state" name="state" required>
+            </div>
+        
+            <label for="dist">District</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="dist" name="dist" required>
+            </div>
+        
+             {% endcomment %}
+
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <h3>Country</h3>
+                    <select name="country" class="countries form-control" id="countryId">
+                        <option value="">Select Country</option>
+                    </select>
+                    
+                </div>
+
+                  <div class="col-sm-4">
+                    <h3>State</h3>
+                    <select name="state" class="states form-control" id="stateId" required>
+                        <option value="">Select State</option>
+                    </select>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <h3>City</h3>        
+                    <select name="city" class="cities form-control" id="cityId" required>
+                  <option value="">Select City</option>
+              </select>
+                  </div>
+
+                </div>
+              </div>
+
+              <label for="block">Block</label>
+            
+              <div class="form-group">
+                <input type="text" class="form-control" id="block" name="block">
+            </div>
+        
+            <label for="vill">Village</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="vill" name="vill">
+            </div>
+        
+            <br>
+            <center><h2>Crop details</h2></center>
+            <label for="crop_name">Crop name</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="crop_name" name="crop_name" required>
+            </div>
+        
+            <label for="crop_variety">Crop variety</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="crop_variety" name="crop_variety">
+            </div>
+
+            <label for="crop_area">Area to be cropped in Hectares</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="crop_area" name="crop_area" required>
+            </div>
+
+            <br>
+            <center><h2>Crop duration</h2></center>
+            <label for="start_date">Date of seeding (Start)</label>
+            <div class="form-group">
+                <input type="date" class="form-control" id="start_date" name="start_date" required>
+            </div>
+        
+            <label for="end_date">Date of cutting (End)</label>
+            <div class="form-group">
+                <input type="date" class="form-control" id="end_date" name="end_date" required>
+            </div>
+
+            <br>
+
+            <center>
+            <button class="btn btn-success" type="submit" style="color: white;">Submit</button>
+            </center>
+            <!-- <br>
+            <center>
+                Already user? <a href="/login/">Login</a>
+            </center> -->
+        
+            <br>
+        
+        </form>
+
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+{% endblock %}
+

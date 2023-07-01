@@ -1,0 +1,22 @@
+#main{
+    position: relative;
+    height: max-content;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 180px;
+    background-color: rgba(0, 0, 0, 0.635);   
+    display: flex; 
+}
+
+#form-container{
+    
+    background-color: rgba(0, 0, 0, 0.733);
+    width: 50%;
+    margin: auto;
+    margin-top: 0;
+    padding: 10px;
+    color: white;
+    border: 1px solid #005555;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px #ffffff9e;
+}

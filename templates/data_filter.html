@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+home
+{% endblock 'title' %}
+
+{% block 'style' %}
+<link rel="stylesheet" href="{% static 'mycss/filter_style.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+
+
+<form action="/data_filter/" method="POST" id="filter">
+    {% csrf_token %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" style="margin:0;padding:0;">
+                <h3>Country</h3>
+                <select name="country" class="countries form-control" id="countryId">
+                    <option value="">Select country</option>
+                </select>
+                
+            </div>
+            
+            <div class="col-sm-4">
+                <h3>State</h3>
+                <select name="state" class="states form-control" id="stateId">
+                    <option value="">Select State</option>
+                </select>
+            </div>
+            
+            <div class="col-sm-4" style="margin:0;padding:0;">
+                <h3>City</h3>        
+                <select name="city" class="cities form-control" id="cityId">
+                    <option value="">Select City</option>
+                </select>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="form-divider">
+        <div class="form-sub-divider">
+            <label for="block">Block</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="block" name="block" placeholder="(optional)">
+            </div>
+        </div>
+        <div class="form-sub-divider">
+            <label for="vill">Village</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="vill" name="vill" placeholder="(optional)">
+            </div>
+        </div>
+    </div>
+    
+    {% comment %} <div class="form-divider">    
+        <div class="form-sub-divider">
+
+        <label for="start_date">Date of seeding (Start)</label>
+        <div class="form-group">
+            <input type="date" class="form-control" id="start_date" name="start_date">
+        </div>
+        </div>
+
+        <div class="form-sub-divider">
+        <label for="end_date">Date of cutting (End)</label>
+        <div class="form-group">
+            <input type="date" class="form-control" id="end_date" name="end_date">
+        </div>
+
+        </div>
+        
+    </div> {% endcomment %}
+
+    <label for="crop_name">Crop name</label>
+    <div class="form-group">
+        <input type="text" class="form-control" id="crop_name" name="crop_name" placeholder="(optional)">
+    </div>
+
+    
+    <br>
+    
+    <center><button class='btn btn-success' type='submit'>Apply filter</button> </center>
+    
+    
+    
+    
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+{% endblock %}

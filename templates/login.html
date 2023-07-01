@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+home
+{% endblock 'title' %}
+
+{% block 'style' %}
+<link rel="stylesheet" href="{% static 'mycss/style.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+
+
+<div id="main">
+
+    
+    <!-- <div id="form-text">
+        <h1>Welcome to Total kissan org</h1>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam?</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cumque molestias asperiores, odio incidunt architecto nulla. Placeat eveniet pariatur aut voluptas dolores reiciendis dolor quibusdam, veniam vitae, veritatis nemo voluptates.</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, rem quos! Laboriosam earum aliquid provident?</h4>
+    </div> -->
+
+    <div id="home-form">
+
+    <!-- {% for message in messages %} -->
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="close"></button>
+    </div>
+
+    <!-- {% endfor %} -->
+
+        <h1 class="text-center">Login</h1>
+
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            <br>
+        
+            <label for="email">Email</label>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" value="{{email}}" required>
+            </div>
+        
+            <label for="pass1">Password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass1" name="pass1" required>
+            </div>
+        
+            <br>
+
+            <center>
+            <button class="btn btn-success" type="submit" style="color: white;">Submit</button>
+            </center>
+            <br>
+            <center>
+                New user? <a href="/signup/">Signup</a>
+            </center>
+           
+            <br>
+        
+        </form>
+    </div>
+
+    
+
+</div>
+
+
+{% endblock %}

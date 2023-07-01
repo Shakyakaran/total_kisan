@@ -1,0 +1,106 @@
+body{
+    background:url(https://www.theindiaforum.in/sites/default/files/field/image/2022/06/21/ramkumar-radhakrishnan-wikimedia-1622193304-1622193304.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'Times New Roman', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#main{
+    position: relative;
+    height: max-content;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 180px;
+    background-color: rgba(0, 0, 0, 0.635);   
+    display: flex; 
+}
+
+#crop-btn{
+    position: fixed; 
+    top: 120px;
+    right: 40px;
+    border: 1px solid white;
+    border-radius: 25px;
+    
+}
+#crop-btn:hover{
+    transition: 0.5s;
+    background-color: #000000;
+}
+
+#crop-btn a{
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 2px;
+    
+}
+
+#home-form{
+
+    background-color: rgba(0, 0, 0, 0.733);
+    width: 25%;
+    margin: auto;
+    margin-top: 0;
+    padding: 10px;
+    color: white;
+    border: 1px solid #005555;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px #ffffff9e;
+}
+#home-form:hover{
+    transition: 0.3s;
+    box-shadow: 1px 1px 10px 5px hsl(0, 0%, 96%);
+}
+
+#form-text{
+    width: 45%;
+    margin: auto;
+    margin-top: 0;
+    height: max-content;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px #ffffff86;
+
+}
+#form-text:hover{
+    background-color: rgba(0, 0, 0, 0.573);
+    transition: 0.3s;
+    box-shadow: 1px 1px 10px 5px #ffffff;
+    /* transform: scale(1.1); */
+}
+
+@media (max-width:700px){
+
+    #form-text{
+        width: 90%;
+    }
+}
+
+table{
+    font-size: 18px;
+}
+td{
+    text-transform: capitalize;
+}
+
+
+

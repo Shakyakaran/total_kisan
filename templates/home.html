@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+home
+{% endblock 'title' %}
+
+{% block 'style' %}
+<link rel="stylesheet" href="{% static 'mycss/style.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+
+
+<div id="main">
+
+    
+    <div id="form-text">
+        <h1>Welcome to Total kissan org</h1>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam?</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cumque molestias asperiores, odio incidunt architecto nulla. Placeat eveniet pariatur aut voluptas dolores reiciendis dolor quibusdam, veniam vitae, veritatis nemo voluptates.</h4>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, rem quos! Laboriosam earum aliquid provident?</h4>
+    </div>
+
+    <!-- <div id="home-form">
+
+        <h1 class="text-center">Sign up</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <br>
+        
+            <label for="email">Email</label>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        
+            <label for="pass1">Password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass1" name="pass1" required>
+            </div>
+        
+            <label for="pass2">confirm password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pass2" name="pass2" required>
+            </div>
+        
+            <br>
+
+            <center>
+            <button class="btn btn-success" type="submit" style="color: white;">Submit</button>
+            </center>
+            <br>
+            <center>
+                Already user? <a href="/auth/login/">Login</a>
+            </center>
+           
+            <br>
+        
+        </form>
+    </div> -->
+
+    
+
+</div>
+
+<section class="container-fluid" style="background-color:rgba(0,0,0,0.8);">
+
+    <div class="row">
+        
+        <div class="col-8 offset-2">
+
+            <br>
+            <h3 style='color:white;'>Total area covered by crop : {{area}} hectare</h3>
+            <div style='display:flex;'>
+                <button id='detail' class="btn btn-primary my-3"> Show details</button>
+                <a href="/data_filter/" class="btn btn-primary m-3">Filter</a>
+                {% comment %} <div class="dropdown m-3">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sort by
+                    </a>
+                  
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">old to new</a></li>
+                      <li><a class="dropdown-item" href="#">new to old</a></li>
+                      
+                    </ul>
+                  </div> {% endcomment %}
+            </div>
+            
+            
+            <table id='crop_details' class="table table-dark table-striped-columns my-5">
+                <thead>
+                  <tr>
+                    <th scope="col">Crop Name</th>
+                    <th scope="col">Crop variety</th>
+                    <th scope="col">Crop Area</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">State</th>
+                    <th scope="col">City</th>
+                    <th scope="col">block</th>
+                    <th scope="col">village</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+
+                    {% for crp in crop  %}
+                  <tr>
+                    {% comment %} <th scope="row">1</th> {% endcomment %}
+                    <td>{{crp.cropName}}</td>
+                    <td>{{crp.cropVariety}}</td>
+                    <td>{{crp.cropArea}} hec.</td>
+                    <td>{{crp.startDate}}</td>
+                    <td>{{crp.endDate}}</td>
+                    <td>{{crp.state}}</td> 
+                    <td>{{crp.dist}}</td> 
+                    <td>{{crp.block}}</td> 
+                    <td>{{crp.vill}}</td> 
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                
+              </table> 
+
+              {% if area == 0 %}
+                <h3 style="color:white;">No data added for applied filter ...</h3>
+              {% endif %}
+        </div>
+
+        <div class="col-2 my-5">
+            
+        </div>
+
+    </div>
+
+</section>
+
+<div id="crop-btn">
+    <a  href="/add_crop/">Add crop +</a>
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'myjs/home_script.js' %}"></script>                  
+{% endblock script %}
